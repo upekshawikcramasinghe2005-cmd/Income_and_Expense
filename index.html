@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Income and Expense <b id="bal">0</b></h2>
+    <input id="desc" placeholder="Detail">
+    <input type="number" id="amt" placeholder="Amount">
+    <select id="type">
+        <option value="1">Income (+)</option>
+        <option value="-1">Expense (-)</option>
+    </select>
+    <button onclick="add()">Add</button>
+    <table border="1" style="margin-top:10px" id="tbl"></table>
+  <script>
+    let total = 0;
+    function add() {
+        let d = document.getElementById('desc').value;
+        let a = parseFloat(document.getElementById('amt').value);
+        let t = parseInt(document.getElementById('type').value);
+        if (!d || isNaN(a)) return;
+        total += (a * t);
+        document.getElementById('bal').innerText = total;
+         let txt = t == 1 ? "Income" : "Expense";
+        document.getElementById('tbl').innerHTML += `<tr><td>${d}</td><td>${txt}</td><td>LKR ${a}</td></tr>`;
+         document.getElementById('desc').value = "";
+        document.getElementById('amt').value = "";
+    }
+</script>
+</body>
+</html>
+
+
+
+      
+
+    
+
+  
+
